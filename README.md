@@ -13,5 +13,6 @@ git clone https://github.com/hasmitapatel18/NGS_coverage_report.git
 cd NGS_coverage_report
 
 #run the find_genes.py script
+
 python3 find_genes.py
 
