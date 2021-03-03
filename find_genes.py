@@ -47,6 +47,7 @@ class LessThan30x():
         for index, rows in less_than_100_df.iterrows():
             gene = rows['GeneSymbol;Accession']
             gene_set.add(gene)
+        #turn the set into a list and return
         gene_list = list(gene_set)
         return gene_list
 
@@ -62,13 +63,27 @@ class Output():
         self.output_csv = self.output_csv(self.output_df)
 
     def output_df(self, gene_list):
-        #making a df from gene list, genes as rows
-        gene_output_df = pd.DataFrame(gene_list, columns=['Genes with less than 100% 30x coverage'])
+        #empty lists to append to
+        genes=[]
+        accession_number=[]
+        #empty dictionary to append to
+        output_dict={}
+        for item in gene_list:
+            #splitting at delimiter ';' to separate genes and accession number
+            splitted=item.split(';')
+            #appending to associated lists
+            genes.append(splitted[0])
+            accession_number.append(splitted[1])
+            #making a dictionary out of the lists to make the output dataframe, heading as the key and value being the list
+            output_dict['Genes']=genes
+            output_dict['Accession number']=accession_number
+        #making a dataframe from the output dictionary, column headings being the key and rows being the value
+        gene_output_df = pd.DataFrame(output_dict)
         return gene_output_df
 
     #output to as a CSV
     def output_csv(self, gene_df):
-        output_file = 'Output.csv'
+        output_file = 'Genes_with_less_than_100%_30x_coverage.csv'
         gene_df.to_csv(output_file, index=False)
 
 
