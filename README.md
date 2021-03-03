@@ -1,6 +1,6 @@
 # NGS_coverage_report
 The find_genes.py Python script extends the coverage report produced by the sambamaba tool pipeline by outputting a list of genes that have less than 100% at 30x coverage.
-The URL of the incomplete sambamba output is the input of the find_genes.py script.
+The URL of the incomplete sambamba output is the input of the find_genes.py script. The output file of the script is named Genes_with_less_than_100%_30x_coverage.csv
 
 To run...
 # install libraries in your terminal
