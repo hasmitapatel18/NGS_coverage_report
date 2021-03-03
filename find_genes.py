@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import pandas as pd
 import requests
 import io
@@ -89,3 +90,6 @@ class Output():
 
 
 manager_object=Manager()
+=======
+
+>>>>>>> 35fa2efa68a2189214f7dd919df604d3ccaa3460
