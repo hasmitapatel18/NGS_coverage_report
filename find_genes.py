@@ -84,8 +84,14 @@ class Output():
     #output to as a CSV
     def output_csv(self, gene_df):
         output_file = 'Genes_with_less_than_100%_30x_coverage.csv'
-        gene_df.to_csv(output_file, index=False)
+        #if all genes are covered 100%, return this dataframe
+        genes_covered_df = pd.DataFrame(['All genes covered 100%'])
+        #check if gene_df (genes with less than 100% 30x coverage) is empty, if it is output the genes_covered_df dataframe
+        if gene_df.empty == False:
+            gene_df.to_csv(output_file, index=False)
+        else:
+            genes_covered_df.to_csv(output_file, index=False, header=False)
 
 
-
+#calling 
 manager_object=Manager()
